@@ -12,6 +12,11 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 
+    @Test
+    public void subtraction(){
+        assertEquals(5, 5 - 1);
+    }
+
     // @Test
     // public void testFile1() throws IOException {
     //     String contents= Files.readString(Path.of("./test-file.md"));
