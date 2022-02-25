@@ -46,6 +46,4 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
     }
-    //Random edit for Lab 6
-    //some randome edit pt2
 }
