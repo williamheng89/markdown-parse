@@ -14,29 +14,29 @@ public class MarkdownParse {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             //if [ open bracket is not found, there are no links thus return.
             if (nextOpenBracket == -1){
-                break;
+                return toReturn;
             }
             if (markdown.indexOf("!") == nextOpenBracket-1){
-                break;
+                return toReturn;
             }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             if (nextCloseBracket == -1){
-                break;
+                return toReturn;
             }
             int openParen = markdown.indexOf("(", nextCloseBracket);
             //if ( open parenthesis is not found, there are no links thus return.
             if (openParen == -1){
-                break;
+                return toReturn;
             }
             if (openParen != nextCloseBracket+1){
-                break;
+                return toReturn;
             }
             int closeParen = markdown.indexOf(")", openParen);
             if (closeParen == -1){
-                break;
+                return toReturn;
             }
             if (markdown.indexOf("`") < nextOpenBracket){
-                break;
+                return toReturn;
             }
             if (markdown.contains("`")){
                 currentIndex = closeParen + 1;
