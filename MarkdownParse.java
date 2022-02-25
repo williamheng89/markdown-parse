@@ -35,16 +35,16 @@ public class MarkdownParse {
             if (closeParen == -1){
                 return toReturn;
             }
-            if (markdown.indexOf("`") < nextOpenBracket){
+            if (markdown.indexOf("`") < nextOpenBracket && markdown.indexOf("`") != -1){
                 return toReturn;
             }
-            // if (markdown.contains("`")){
-            //     currentIndex = closeParen + 1;
-            //     String MDsubstring = markdown.substring(openParen + 1, closeParen);
-            //     String fix = MDsubstring.replace("`", "%60");
-            //     toReturn.add(fix);
-            //     continue;
-            // }
+            if (markdown.contains("`")){
+                currentIndex = closeParen + 1;
+                String MDsubstring = markdown.substring(openParen + 1, closeParen);
+                String fix = MDsubstring.replace("`", "%60");
+                toReturn.add(fix);
+                continue;
+            }
             currentIndex = closeParen + 1;
             toReturn.add(markdown.substring(openParen + 1, closeParen));
         }
