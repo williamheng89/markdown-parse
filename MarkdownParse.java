@@ -35,9 +35,9 @@ public class MarkdownParse {
             if (closeParen == -1){
                 return toReturn;
             }
-            // if (markdown.indexOf("`") < nextOpenBracket){
-            //     return toReturn;
-            // }
+            if (markdown.indexOf("`") < nextOpenBracket){
+                return toReturn;
+            }
             // if (markdown.contains("`")){
             //     currentIndex = closeParen + 1;
             //     String MDsubstring = markdown.substring(openParen + 1, closeParen);
