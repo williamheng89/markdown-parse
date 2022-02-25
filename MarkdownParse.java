@@ -38,7 +38,7 @@ public class MarkdownParse {
             if (markdown.indexOf("`") < nextOpenBracket && markdown.indexOf("`") != -1){
                 return toReturn;
             }
-            if (markdown.contains("`")){
+            if (markdown.indexOf("`", nextOpenBracket) != -1){
                 currentIndex = closeParen + 1;
                 String MDsubstring = markdown.substring(openParen + 1, closeParen);
                 String fix = MDsubstring.replace("`", "%60");
