@@ -35,7 +35,7 @@ public class MarkdownParse {
             if (closeParen == -1){
                 return toReturn;
             }
-            if (markdown.indexOf("`") < nextOpenBracket && markdown.indexOf("`") != -1){
+            if (markdown.indexOf(("`"), nextOpenBracket) < nextOpenBracket && markdown.indexOf("`") != -1){
                 return toReturn;
             }
             if (markdown.indexOf("`", nextOpenBracket) != -1){
