@@ -14,27 +14,28 @@ public class MarkdownParse {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             //if [ open bracket is not found, there are no links thus return.
             if (nextOpenBracket == -1){
-                return toReturn;
+                break;
             }
             if (markdown.indexOf("!") == nextOpenBracket-1){
                 return toReturn;
             }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             if (nextCloseBracket == -1){
-                return toReturn;
+                break;
             }
             int openParen = markdown.indexOf("(", nextCloseBracket);
             //if ( open parenthesis is not found, there are no links thus return.
             if (openParen == -1){
-                return toReturn;
+                break;
             }
             if (openParen != nextCloseBracket+1){
-                return toReturn;
+                break;
             }
             int closeParen = markdown.indexOf(")", openParen);
             if (closeParen == -1){
-                return toReturn;
+                break;
             }
+
             currentIndex = closeParen + 1;
             toReturn.add(markdown.substring(openParen + 1, closeParen));
         }
