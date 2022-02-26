@@ -23,6 +23,12 @@ public class MarkdownParse {
             if (nextCloseBracket == -1){
                 return toReturn;
             }
+            /**
+             * attempt to fix nested parenthesis, brackets, escaped brackets
+            if (markdown.substring(nextOpenBracket, nextCloseBracket).contains('\['){
+                if (markdown.indexOf("'\'") = )
+            }
+             */
             int openParen = markdown.indexOf("(", nextCloseBracket);
             //if ( open parenthesis is not found, there are no links thus return.
             if (openParen == -1){
@@ -35,6 +41,9 @@ public class MarkdownParse {
             if (closeParen == -1){
                 return toReturn;
             }
+            /**
+            * attempt to fix backTicks
+
             if (markdown.indexOf(("`"), nextOpenBracket) < nextOpenBracket && markdown.indexOf("`") != -1){
                 return toReturn;
             }
@@ -45,6 +54,7 @@ public class MarkdownParse {
                 toReturn.add(fix);
                 continue;
             }
+            */
             currentIndex = closeParen + 1;
             toReturn.add(markdown.substring(openParen + 1, closeParen));
         }
